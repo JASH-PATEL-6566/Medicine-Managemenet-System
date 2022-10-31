@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'
 import Head from 'next/Head'
 import cookie from 'nookies'
+import Loading from '../../Components/Loading/Loading';
 
 export default function login() {
     const emailRef = useRef();
@@ -25,8 +26,10 @@ export default function login() {
         login(emailRef.current.value, passRef.current.value)
             .then((res) => {
                 if (res.user) {
-                    cookie.set("", "token", res._tokenResponse.idToken)
-                    router.replace('/user');
+                    setTimeout(() => {
+                        router.replace('/user');
+                        setLoading(false);
+                    }, 1000);
                 }
             })
             .catch((err) => {
@@ -39,8 +42,8 @@ export default function login() {
                         setError('something went Wrong....Please try again')
                         break;
                 }
+                setLoading(false);
             })
-        setLoading(false);
     }
 
     return (
@@ -48,7 +51,7 @@ export default function login() {
             <Head>
                 <title>Login | MedAssist</title>
             </Head>
-            <div className={classes.main_container}>
+            {!loading && <div className={classes.main_container}>
                 <div className={classes.img_container}>
                     <Image
                         src={image}
@@ -75,7 +78,8 @@ export default function login() {
                         <Link href="/signup" className={classes.reg}>SignUp</Link>
                     </form>
                 </div>
-            </div >
+            </div >}
+            {loading && <Loading />}
         </>
     )
 }

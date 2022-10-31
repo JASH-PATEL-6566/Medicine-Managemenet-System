@@ -1,0 +1,101 @@
+.sidebar {
+    width: 250px;
+    min-width: 180px;
+    left: 0;
+    height: 100%;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.sidebar .text {
+    text-align: center;
+    /* bor */
+}
+
+.sidebar .text img {
+    width: 60%;
+}
+
+.sidebar ul {
+    /* background-color: red; */
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+
+.sidebar ul li {
+    line-height: 3.4em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.sidebar ul li a {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding-left: 1em;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-right: 3px solid transparent;
+    cursor: pointer;
+}
+
+.sidebar ul li.active a {
+    color: #406e6b;
+    background-color: #c8d5b9ad;
+    border-right-color: #68b0ab;
+}
+
+.sidebar ul ul li.avtive a {
+    color: black;
+    border-right-color: transparent;
+}
+
+.sidebar ul ul {
+    position: static;
+    display: none;
+}
+
+.sidebar ul ul li {
+    line-height: 3em;
+    border-bottom: none;
+}
+
+.sidebar ul ul li a {
+    font-size: 1em;
+    color: black;
+    padding-left: 5.5em;
+}
+.sidebar ul li.active ul li a {
+    color: black;
+    background-color: white;
+    border-right-color: transparent;
+}
+
+.sidebar ul ul li a:hover {
+    color: #406e6b !important;
+    background-color: #c8d5b928 !important;
+}
+
+.sidebar ul ul li a {
+    border-right-color: transparent;
+}
+
+.sidebar ul li a .down_arrow {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    font-size: 22px;
+    transform: translateY(-50%);
+    transition: transform 0.4s;
+}
+
+.down_arrow {
+    color: black;
+}
+
+.sidebar ul li a .rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}

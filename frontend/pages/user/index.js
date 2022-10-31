@@ -1,17 +1,11 @@
-import { useRouter } from "next/router";
-import { useAuth } from "../../firebase/Context/AuthContext"
+import classes from './user.module.css';
+import Navbar from "../../Components/subNavbar/navbar";
 
 const User = () => {
-    const { logout } = useAuth();
-    const router = useRouter();
     return (
-        <>
-            {/* <h1>{id}</h1> */}
-            <button onClick={() => {
-                router.replace("/");
-                logout();
-            }}>Logout</button>
-        </>
+        <div className={classes.main_container}>
+            <Navbar title="Dashboard" />
+        </div>
     )
 }
 export default User;

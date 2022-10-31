@@ -26,7 +26,7 @@ footer {
 
 ::-webkit-scrollbar {
     width: 0.5em;
-    /* width: 14px; */
+    height: 100%;
 }
 
 ::-webkit-scrollbar-button {
@@ -38,6 +38,10 @@ footer {
     background-color: #68b0ab;
 }
 
+::-webkit-scrollbar-track {
+    background-color: rgb(224, 224, 224);
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -45,4 +49,29 @@ footer {
 .disable {
     opacity: 0.9;
     font-weight: 600;
+}
+
+.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+.sidebar ul .sale_show.show {
+    display: block;
+}
+
+.sidebar ul .pur_show.show {
+    display: block;
+}
+
+section {
+    display: flex;
+    height: 100vh;
+    justify-content: flex-start;
+    /* border: 2px solid red; */
+    overflow: hidden;
+}
+
+.main {
+    width: 100%;
+    /* padding: 1em; */
 }

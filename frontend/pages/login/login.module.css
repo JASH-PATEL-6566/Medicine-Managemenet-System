@@ -86,3 +86,8 @@
     background-color: #c8d5b9 !important;
     text-align: center;
 }
+
+.linkForgot {
+    margin: 1em auto;
+    color: blue;
+}

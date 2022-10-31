@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { useContext, useEffect, useState, createContext } from 'react';
 import { useRouter } from 'next/router';
+import Loading from '../../Components/Loading/Loading';
 
 const AuthContext = createContext({});
 export function useAuth() {
@@ -77,8 +78,12 @@ export const ProtectRoute = ({ children }) => {
     const { currentUser, loading } = useAuth();
     if (loading || (!currentUser && window.location.pathname !== '/login')) {
         const router = useRouter();
-        router.push('/login');
-        return (<h1>Loading.....</h1>);
+        setTimeout(() => {
+            router.push('/login');
+        }, 1000);
+        return (
+            <Loading />
+        );
     }
     return currentUser && children;
 };
