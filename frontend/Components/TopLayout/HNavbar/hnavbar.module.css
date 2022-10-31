@@ -1,0 +1,36 @@
+.navbar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2em 1.7em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+        rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.hnavbar_name h1 {
+    font-size: 2.2em;
+    letter-spacing: 1px;
+}
+
+.hnavbar_name h1 span {
+    color: #68b0ab;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.links li {
+    list-style: none;
+    margin: 0 1.5em;
+    color: #68b0ab;
+}
+
+.links li:hover {
+    color: #144744;
+}
