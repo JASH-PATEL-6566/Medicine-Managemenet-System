@@ -9,6 +9,7 @@ import Head from 'next/Head';
 
 export default function SignUp() {
     const emailRef = useRef();
+    const userRef = useRef();
     const passRef = useRef();
     const conPassRef = useRef();
     const [error, setError] = useState("");
@@ -64,6 +65,11 @@ export default function SignUp() {
                         <div className={classes.email_con}>
                             <label htmlFor="email">Your Email : </label>
                             <input type="email" ref={emailRef} required id='email' placeholder='Enter your email' />
+                        </div>
+                        {/* User-name */}
+                        <div className={classes.email_con}>
+                            <label htmlFor="username">Your UserName : </label>
+                            <input ref={userRef} type="text" required id='username' placeholder='Enter your UserName' />
                         </div>
                         <div className={classes.pass_con}>
                             <label htmlFor="pass">Your Password : </label>

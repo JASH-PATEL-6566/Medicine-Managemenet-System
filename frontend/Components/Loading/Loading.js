@@ -1,18 +1,24 @@
 import classes from './loading.module.css';
+import Head from 'next/Head';
 
 export default function Loading() {
     return (
-        <div className={classes.center}>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-            <div className={classes.wave}></div>
-        </div>
+        <>
+            <Head>
+                <title>Loading....</title>
+            </Head>
+            <div className={classes.center}>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+                <div className={classes.wave}></div>
+            </div>
+        </>
     )
 }

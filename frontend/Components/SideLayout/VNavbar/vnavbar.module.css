@@ -29,6 +29,10 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.274);
 }
 
+.sidebar ul li:hover {
+    background-color: #3c6e6b34;
+}
+
 .sidebar ul li a {
     position: relative;
     color: black;
@@ -48,54 +52,22 @@
     border-right-color: #68b0ab;
 }
 
-.sidebar ul ul li.avtive a {
-    color: black;
-    border-right-color: transparent;
+.noti {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.sidebar ul ul {
-    position: static;
-    display: none;
-}
-
-.sidebar ul ul li {
-    line-height: 3em;
-    border-bottom: none;
-}
-
-.sidebar ul ul li a {
-    font-size: 1em;
-    color: black;
-    padding-left: 5.5em;
-}
-.sidebar ul li.active ul li a {
-    color: black;
-    background-color: white;
-    border-right-color: transparent;
-}
-
-.sidebar ul ul li a:hover {
-    color: #406e6b !important;
-    background-color: #c8d5b928 !important;
-}
-
-.sidebar ul ul li a {
-    border-right-color: transparent;
-}
-
-.sidebar ul li a .down_arrow {
+.count {
+    background-color: #68b0ab9a;
+    height: 25px;
+    width: 25px;
+    border-radius: 7px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0.7em;
     position: absolute;
-    top: 50%;
-    right: 20px;
-    font-size: 22px;
-    transform: translateY(-50%);
-    transition: transform 0.4s;
-}
-
-.down_arrow {
-    color: black;
-}
-
-.sidebar ul li a .rotate {
-    transform: translateY(-50%) rotate(-180deg);
 }

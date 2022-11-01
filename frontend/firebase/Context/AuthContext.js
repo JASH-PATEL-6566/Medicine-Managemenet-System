@@ -93,5 +93,5 @@ export const AlreadyLogedIn = ({ children }) => {
             <Loading />
         )
     }
-    return currentUser && children;
+    return children;
 }

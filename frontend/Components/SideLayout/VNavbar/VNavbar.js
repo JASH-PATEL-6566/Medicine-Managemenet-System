@@ -1,10 +1,10 @@
 import classes from './vnavbar.module.css';
-import { FaBell, FaWallet, FaShapes, FaCartPlus, FaFileInvoice, FaChartPie } from 'react-icons/fa';
+import { FaBell, FaShapes, FaCartPlus, FaFileInvoice, FaChartPie } from 'react-icons/fa';
 import { MdDashboardCustomize } from 'react-icons/md'
 import $ from 'jquery';
 import logo from '../../../Images/MedAssist.png';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next/Link';
 
 export default function Navbar() {
 
@@ -33,7 +33,12 @@ export default function Navbar() {
                     <li><Link href='/user/items'><FaShapes style={{ marginRight: "1em" }} />Items</Link></li>
                     <li><Link href='/user/sale'><FaFileInvoice style={{ marginRight: "1em" }} />Sale</Link></li>
                     <li><Link href='/user/purchase'><FaCartPlus style={{ marginRight: "1em" }} />Purchase</Link></li>
-                    <li><Link href='/user/notification'><FaBell style={{ marginRight: "1em" }} />Notification</Link></li>
+                    <li className={classes.noti}>
+                        <Link href='/user/notification'><FaBell style={{ marginRight: "1em" }} />Notification</Link>
+                        <span className={classes.count}>
+                            1
+                        </span>
+                    </li>
                     <li><Link href='/user/report'><FaChartPie style={{ marginRight: "1em" }} />Report</Link></li>
                 </ul>
             </nav >

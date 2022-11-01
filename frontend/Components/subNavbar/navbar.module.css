@@ -30,10 +30,10 @@
 
 .nav ul li button {
     font-size: 1.2em;
-    padding: 0.3em 0.6em;
+    padding: 0.3em;
     border-style: none;
     outline: none;
     background-color: #68b0ab;
-    border-radius: 0.2em;
+    border-radius: 0.4em;
     cursor: pointer;
 }

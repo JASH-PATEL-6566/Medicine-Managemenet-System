@@ -6,7 +6,6 @@ import { useAuth } from '../../firebase/Context/AuthContext';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import Head from 'next/Head'
-import cookie from 'nookies'
 import Loading from '../../Components/Loading/Loading';
 
 export default function login() {

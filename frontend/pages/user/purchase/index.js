@@ -1,11 +1,17 @@
 import classes from './purchase.module.css';
 import Navbar from "../../../Components/subNavbar/navbar";
+import Head from 'next/Head';
 
 const Items = () => {
     return (
-        <div className={classes.main_container}>
-            <Navbar title="Purchase" />
-        </div>
+        <>
+            <Head>
+                <title>MedAssist | Purchase</title>
+            </Head>
+            <div className={classes.main_container}>
+                <Navbar title="Purchase" />
+            </div>
+        </>
     )
 }
 export default Items;
