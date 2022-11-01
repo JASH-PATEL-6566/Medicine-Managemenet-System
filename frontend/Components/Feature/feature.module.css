@@ -1,0 +1,47 @@
+.feature {
+    flex: 2;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+}
+
+.title {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.bottom {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.featureChart {
+    width: 150px;
+    height: 150px;
+}
+
+.titleb {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: gray;
+}
+
+.amount {
+    font-size: 30px;
+}
+
+.desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: gray;
+}

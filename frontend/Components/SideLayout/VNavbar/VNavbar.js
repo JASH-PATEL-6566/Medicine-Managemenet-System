@@ -4,7 +4,7 @@ import { MdDashboardCustomize } from 'react-icons/md'
 import $ from 'jquery';
 import logo from '../../../Images/MedAssist.png';
 import Image from 'next/image';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 export default function Navbar() {
 

@@ -19,8 +19,10 @@
     "next": "13.0.0",
     "nookies": "^2.5.2",
     "react": "18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "recharts": "^2.1.16"
   },
   "devDependencies": {
     "eslint": "8.26.0",
