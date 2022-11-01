@@ -5,29 +5,35 @@ import login from './login';
 import SignUp from './signup';
 import SideLayout from '../Components/SideLayout/SideLayout';
 import AuthProvider from '../firebase/Context/AuthContext';
-import { ProtectRoute } from '../firebase/Context/AuthContext';
+import { ProtectRoute, AlreadyLogedIn } from '../firebase/Context/AuthContext';
 
 function MyApp({ Component, pageProps }) {
   switch (Component) {
     case Home: {
       return (
         <AuthProvider>
-          <TopLayout>
-            <Component {...pageProps} />
-          </TopLayout>
+          <AlreadyLogedIn>
+            <TopLayout>
+              <Component {...pageProps} />
+            </TopLayout>
+          </AlreadyLogedIn>
         </AuthProvider>
       );
     }
     case (login):
       return (
         <AuthProvider>
-          <Component {...pageProps} />
+          <AlreadyLogedIn>
+            <Component {...pageProps} />
+          </AlreadyLogedIn>
         </AuthProvider>
       );
     case (SignUp):
       return (
         <AuthProvider>
-          <Component {...pageProps} />
+          <AlreadyLogedIn>
+            <Component {...pageProps} />
+          </AlreadyLogedIn>
         </AuthProvider>
       );
     default:
