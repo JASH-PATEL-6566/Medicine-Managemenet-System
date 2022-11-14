@@ -1,0 +1,19 @@
+.dataTabelContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5em 1em;
+    gap: 1.1em;
+}
+
+.input_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    /* border: 2px solid black; */
+}
+
+.input_container .input {
+    width: 40%;
+}
