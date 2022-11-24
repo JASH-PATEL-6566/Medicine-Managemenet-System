@@ -52,7 +52,7 @@ export default function AuthProvider({ children }) {
             setCurrentUser(user);
             setLoading(false);
         })
-
+        // check
         return unsubscribe;
     }, [])
 
