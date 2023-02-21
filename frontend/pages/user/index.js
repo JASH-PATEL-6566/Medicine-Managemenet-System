@@ -6,12 +6,12 @@ import Widget from '../../Components/Widget/Widget';
 import Feature from '../../Components/Feature/Feature';
 import Chart from '../../Components/Chart/Chart';
 
-const User = () => {
+export default function User() {
     const { currentUser } = useAuth();
     return (
         <>
             <Head>
-                <title>MedAssist | DashBoard | {currentUser.email}</title>
+                {currentUser && <title>MedAssist | DashBoard | {currentUser.email}</title>}
             </Head>
             <div className={classes.main_container}>
                 <Navbar title="Dashboard" />
@@ -29,4 +29,3 @@ const User = () => {
         </>
     )
 }
-export default User;

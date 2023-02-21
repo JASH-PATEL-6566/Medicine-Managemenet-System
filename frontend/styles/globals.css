@@ -24,22 +24,24 @@ footer {
     padding: 2em 0;
 }
 
-::-webkit-scrollbar {
-    width: 0.5em;
-    height: 100%;
-}
-
-::-webkit-scrollbar-button {
-    display: none;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 0.5em;
-    background-color: #68b0ab;
-}
-
+/* Style the scrollbar track */
 ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #68b0ab;
+    border-radius: 10px;
+}
+
+/* Hide scrollbar when not hovered */
+::-webkit-scrollbar {
+    width: 8px;
     background-color: rgb(224, 224, 224);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #98ceca;
 }
 
 .hidden {
@@ -74,4 +76,20 @@ section {
 .main {
     width: 100%;
     /* padding: 1em; */
+}
+
+/* new */
+.sell_container {
+    padding: 0 1em 1em 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.sell_container .text {
+    width: 20em;
+}
+
+.tabel_container {
+    padding: 1em;
 }

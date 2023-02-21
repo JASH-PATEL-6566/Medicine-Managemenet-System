@@ -10,12 +10,13 @@ import { IconButton } from '@mui/material/';
 export default function Navbar({ title }) {
     const { currentUser, logout } = useAuth();
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
     return (
         <>
             {!loading && <nav className={classes.nav}>
                 <h2>{title}</h2>
                 <ul>
-                    <li>Welcome, <span>{currentUser.email}</span></li>
+                    <li>Welcome, <span>{currentUser && currentUser.displayName}</span></li>
                     <li>
                         <IconButton>
                             <HistoryIcon />
@@ -34,11 +35,11 @@ export default function Navbar({ title }) {
                         </button> */}
                         <IconButton onClick={() => {
                             setLoading(true);
-                            setTimeout(() => {
-                                logout();
-                                // router.replace("/");
-                                setLoading(false);
-                            }, 1000);
+                            // setTimeout(() => {
+                            logout();
+                            router.replace("/");
+                            setLoading(false);
+                            // }, 1000);
                         }
                         }><LogoutIcon /></IconButton>
                     </li>

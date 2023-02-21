@@ -2,36 +2,34 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-    { field: 'id', headerName: 'ID', width: 190 },
-    { field: 'Name', headerName: 'Name', width: 160 },
-    { field: 'Quantity', headerName: 'Quantity', width: 100 },
-    {
-        field: 'Price',
-        headerName: 'Price',
-        type: 'number',
-        width: 100,
-    },
-    // { field: 'Last Update', headerName: 'Last Update', width: 130 },
-    { field: 'Expiry', headerName: 'Expiry', width: 130 },
+    { field: 'id', headerName: 'ID', width: 150 },
+    { field: 'Name', headerName: 'Name', width: 150 },
     {
         field: 'Price',
         headerName: 'Price',
         type: 'number',
         width: 150,
     },
-    // {
-    //     field: 'fullName',
-    //     headerName: 'Full name',
-    //     description: 'This column has a value getter and is not sortable.',
-    //     sortable: false,
-    //     width: 160,
-    //     valueGetter: (params) =>
-    //         `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-    // },
+    {
+        field: 'Quantity',
+        headerName: 'Quantity',
+        type: 'number',
+        width: 150,
+    },
+    {
+        field: 'ExpiryDate',
+        headerName: 'ExpiryDate',
+        width: 150
+    },
+    {
+        field: 'LastUpdateOn',
+        headerName: 'Last Update On',
+        width: 150
+    }
 ];
 
 const rows = [
-    { id: 193, Name: 'Peracile moll', Quantity: 10, Expiry: "15/10/2022", Price: 10 },
+    { id: 193, Name: 'Peracile moll', Price: 100, Quantity: 10, Expiry: "15/10/2022" },
     // { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
     // { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
     // { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
