@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useAuth } from '../../firebase/Context/AuthContext';
 import { useRouter } from 'next/router'
 import Head from 'next/Head';
+import { auth } from '../../firebase/firebase';
+import { updateProfile } from 'firebase/auth';
 
 export default function SignUp() {
     const emailRef = useRef();
@@ -28,6 +30,10 @@ export default function SignUp() {
         signup(emailRef.current.value, passRef.current.value)
             .then(() => {
                 router.push('/login')
+                const user = auth.currentUser;
+                updateProfile(auth.currentUser, {
+                    displayName: userRef.current.value
+                })
             })
             .catch(err => {
                 switch (err.code) {
@@ -62,22 +68,22 @@ export default function SignUp() {
                 <div className={classes.outer_conatiner}>
                     <form onSubmit={handleSubmit}>
                         <h1>SignUp</h1>
+                        {/* User-name */}
+                        <div className={classes.username_con}>
+                            <label htmlFor="username">Your UserName : </label>
+                            <input ref={userRef} type="text" required id='username' placeholder='Username...' />
+                        </div>
                         <div className={classes.email_con}>
                             <label htmlFor="email">Your Email : </label>
-                            <input type="email" ref={emailRef} required id='email' placeholder='Enter your email' />
-                        </div>
-                        {/* User-name */}
-                        <div className={classes.email_con}>
-                            <label htmlFor="username">Your UserName : </label>
-                            <input ref={userRef} type="text" required id='username' placeholder='Enter your UserName' />
+                            <input type="email" ref={emailRef} required id='email' placeholder='Email...' />
                         </div>
                         <div className={classes.pass_con}>
                             <label htmlFor="pass">Your Password : </label>
-                            <input type="password" ref={passRef} required id='pass' placeholder='Enter your Password' />
+                            <input type="password" ref={passRef} required id='pass' placeholder='Password...' />
                         </div>
                         <div className={classes.pass_con}>
                             <label htmlFor="pass">Confirm Password : </label>
-                            <input type="password" ref={conPassRef} required id='pass' placeholder='Enter your Password' />
+                            <input type="password" ref={conPassRef} required id='pass' placeholder='Confirm Password...' />
                         </div>
                         <label className={error === "" ? "hidden" : ""}>* {error}</label>
                         <button type='submit' disabled={loading} className={loading ? classes.disable : ""}>{loading ? "Loading..." : "SignUp"}</button>

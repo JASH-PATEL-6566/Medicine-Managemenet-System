@@ -8,8 +8,7 @@ import {
     updatePassword
 } from "firebase/auth";
 import { useContext, useEffect, useState, createContext } from 'react';
-import Loading from '../../Components/Loading/Loading';
-import { delayRouting } from '../../Components/delayRouting/delayRouting';
+
 
 const AuthContext = createContext({});
 export function useAuth() {
@@ -72,26 +71,4 @@ export default function AuthProvider({ children }) {
             {!loading && children}
         </AuthContext.Provider>
     )
-}
-
-export const ProtectRoute = ({ children }) => {
-    const { currentUser, loading } = useAuth();
-    if (loading || (!currentUser && window.location.pathname !== '/login')) {
-        delayRouting('/login');
-        return (
-            <Loading />
-        );
-    }
-    return currentUser && children;
-};
-
-export const AlreadyLogedIn = ({ children }) => {
-    const { currentUser } = useAuth();
-    if (currentUser) {
-        delayRouting('/user');
-        return (
-            <Loading />
-        )
-    }
-    return children;
 }

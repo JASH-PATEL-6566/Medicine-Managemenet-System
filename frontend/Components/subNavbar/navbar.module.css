@@ -1,8 +1,13 @@
 .nav {
+    position: fixed;
+    position: sticky;
+    top: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     padding: 1em;
     align-items: center;
+    background-color: white;
     /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
         rgba(0, 0, 0, 0.05) 0px 1px 1px 0px; */
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -26,6 +31,7 @@
 
 .nav ul li span {
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .nav ul li button {

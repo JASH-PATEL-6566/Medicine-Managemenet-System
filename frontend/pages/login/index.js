@@ -24,15 +24,16 @@ export default function login() {
         setLoading(true);
         login(emailRef.current.value, passRef.current.value)
             .then((res) => {
+                // console.log(res);
                 if (res.user) {
-                    setTimeout(() => {
-                        router.replace('/user');
-                        setLoading(false);
-                    }, 1000);
+                    // setTimeout(() => {
+                    router.replace('/user');
+                    // }, 1000);
                 }
+                setLoading(false);
             })
             .catch((err) => {
-                console.log(err);
+                // console.log(err);
                 switch (err.code) {
                     case 'auth/wrong-password':
                         setError('Wrong Password.....Please try again')

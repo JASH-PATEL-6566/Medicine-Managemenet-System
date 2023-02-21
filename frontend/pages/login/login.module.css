@@ -36,7 +36,7 @@
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
         rgb(209, 213, 219) 0px 0px 0px 1px inset;
     padding: 0.7em 0.5em;
-    font-size: 1.1em;
+    font-size: 1.06em;
     margin: 0.4em 0;
 }
 
@@ -74,7 +74,8 @@
 }
 
 .email_con,
-.pass_con {
+.pass_con,
+.username_con {
     display: flex;
     flex-direction: column;
 }
