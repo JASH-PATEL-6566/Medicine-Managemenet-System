@@ -1,1 +1,0 @@
-{"version":"1.0.0","name":"backend","dependencies":{"body-parser":{"version":"1.20.1"},"cors":{"version":"2.8.5"},"express-graphql":{"version":"0.12.0"},"express":{"version":"4.18.2"},"graphql":{"version":"15.8.0"},"mongoose":{"version":"6.7.0"}}}
