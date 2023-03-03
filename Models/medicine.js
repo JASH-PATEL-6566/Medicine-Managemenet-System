@@ -8,6 +8,7 @@ const medicineSchema = new Schema({
     uploadOn: String,
 })
 
-const Medicine = models.medicine || model('medicine', medicineSchema);
+// const Medicine = models.medicine || model('medicine', medicineSchema);
 
-export default Medicine
+// export default Medicine
+export default medicineSchema;

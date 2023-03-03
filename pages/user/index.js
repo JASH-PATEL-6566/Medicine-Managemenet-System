@@ -11,7 +11,7 @@ export default function User() {
     return (
         <>
             <Head>
-                {currentUser && <title>MedAssist | DashBoard | {currentUser.email}</title>}
+                {currentUser && <title>MedAssist | DashBoard | {currentUser.displayName}</title>}
             </Head>
             <div className={classes.main_container}>
                 <Navbar title="Dashboard" />

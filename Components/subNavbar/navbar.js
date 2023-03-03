@@ -6,6 +6,7 @@ import Loading from "../Loading/Loading";
 import LogoutIcon from '@mui/icons-material/Logout';
 import HistoryIcon from '@mui/icons-material/History';
 import { IconButton } from '@mui/material/';
+import { auth } from "../../firebase/firebase";
 
 export default function Navbar({ title }) {
     const { currentUser, logout } = useAuth();
@@ -16,7 +17,7 @@ export default function Navbar({ title }) {
             {!loading && <nav className={classes.nav}>
                 <h2>{title}</h2>
                 <ul>
-                    <li>Welcome, <span>{currentUser && currentUser.displayName}</span></li>
+                    <li>Welcome, <span>{auth.currentUser && auth.currentUser.displayName}</span></li>
                     <li>
                         <IconButton>
                             <HistoryIcon />
@@ -33,11 +34,11 @@ export default function Navbar({ title }) {
                         }}>
                             <LogoutIcon />
                         </button> */}
-                        <IconButton onClick={() => {
+                        <IconButton onClick={async () => {
                             setLoading(true);
                             // setTimeout(() => {
                             logout();
-                            router.replace("/");
+                            await router.push('/login')
                             setLoading(false);
                             // }, 1000);
                         }
