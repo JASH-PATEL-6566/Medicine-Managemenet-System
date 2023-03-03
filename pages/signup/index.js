@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/Head';
 import { auth } from '../../firebase/firebase';
 import { updateProfile } from 'firebase/auth';
+import axios from 'axios';
 
 export default function SignUp() {
     const emailRef = useRef();
@@ -28,12 +29,21 @@ export default function SignUp() {
         setError('')
         setLoading(true)
         signup(emailRef.current.value, passRef.current.value)
-            .then(() => {
-                router.push('/login')
-                const user = auth.currentUser;
-                updateProfile(auth.currentUser, {
+            .then(async () => {
+                await updateProfile(auth.currentUser, {
                     displayName: userRef.current.value
                 })
+                const { uid, email } = auth.currentUser;
+                axios.post(process.env.DB + '/User/addUser', { displayName: auth.currentUser.displayName, uid, email })
+                    .then((res) => {
+                        // router.push('/login')
+                        console.log(res);
+                        setLoading(false);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        setLoading(false);
+                    })
             })
             .catch(err => {
                 switch (err.code) {
@@ -82,8 +92,8 @@ export default function SignUp() {
                             <input type="password" ref={passRef} required id='pass' placeholder='Password...' />
                         </div>
                         <div className={classes.pass_con}>
-                            <label htmlFor="pass">Confirm Password : </label>
-                            <input type="password" ref={conPassRef} required id='pass' placeholder='Confirm Password...' />
+                            <label htmlFor="passConfirm">Confirm Password : </label>
+                            <input type="password" ref={conPassRef} required id='passConfirm' placeholder='Confirm Password...' />
                         </div>
                         <label className={error === "" ? "hidden" : ""}>* {error}</label>
                         <button type='submit' disabled={loading} className={loading ? classes.disable : ""}>{loading ? "Loading..." : "SignUp"}</button>

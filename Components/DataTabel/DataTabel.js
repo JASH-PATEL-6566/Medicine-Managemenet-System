@@ -2,48 +2,41 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-    { field: 'id', headerName: 'ID', width: 150 },
-    { field: 'Name', headerName: 'Name', width: 150 },
+    { field: '_id', headerName: 'ID', width: 220 },
+    { field: 'name', headerName: 'Name', width: 190 },
     {
-        field: 'Price',
-        headerName: 'Price',
-        type: 'number',
-        width: 150,
-    },
-    {
-        field: 'Quantity',
+        field: 'quantity',
         headerName: 'Quantity',
         type: 'number',
-        width: 150,
+        width: 160,
     },
     {
-        field: 'ExpiryDate',
+        field: 'price',
+        headerName: 'Price',
+        type: 'number',
+        width: 160,
+    },
+    {
+        field: 'expiryDate',
         headerName: 'ExpiryDate',
-        width: 150
+        width: 190
     },
     {
-        field: 'LastUpdateOn',
-        headerName: 'Last Update On',
-        width: 150
+        field: 'uploadOn',
+        headerName: 'Upload-On',
+        width: 160
     }
 ];
 
-const rows = [
-    { id: 193, Name: 'Peracile moll', Price: 100, Quantity: 10, Expiry: "15/10/2022" },
-    // { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-    // { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-    // { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    // { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    // { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    // { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    // { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    // { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
 
-export default function DataTable() {
+export default function DataTable({ data }) {
+    const rows = data;
+
+    console.log(rows);
     return (
         <div style={{ height: 475, width: '100%' }}>
             <DataGrid
+                getRowId={(row) => row._id}
                 rows={rows}
                 columns={columns}
                 pageSize={7}

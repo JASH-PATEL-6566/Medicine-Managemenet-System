@@ -27,7 +27,7 @@ export default function login() {
                 // console.log(res);
                 if (res.user) {
                     // setTimeout(() => {
-                    router.replace('/user');
+                    router.replace('/user')
                     // }, 1000);
                 }
                 setLoading(false);
