@@ -10,6 +10,7 @@ import { auth } from '../../../firebase/firebase';
 
 import { StateContext } from '../../../Context/StateContext';
 import SnackbarTag from '../../../Components/Snackbar/Snackbar';
+import { columns } from '../../../Components/DataTabel/Items/Column';
 
 const Items = () => {
     const router = useRouter();
@@ -35,11 +36,18 @@ const Items = () => {
                 <Navbar title="Items" />
                 <div className={classes.dataTabelContainer}>
                     <div className={classes.input_container}>
-                        <Button variant="contained" onClick={() => router.replace('/user/add-medicine')}>
-                            Add
-                        </Button>
+                        <div className={classes.btn}>
+                            <Button fullWidth={true} variant="contained" onClick={() => router.replace('/user/add-medicine')}>
+                                Add
+                            </Button>
+                        </div>
+                        <div className={classes.btn}>
+                            <Button fullWidth={true} color='error' variant="contained" onClick={() => router.replace('/user/remove-medicine')}>
+                                Remove
+                            </Button>
+                        </div>
                     </div>
-                    <DataTable data={medicineData} />
+                    <DataTable data={medicineData} col={columns} />
                 </div>
             </div>
             <SnackbarTag

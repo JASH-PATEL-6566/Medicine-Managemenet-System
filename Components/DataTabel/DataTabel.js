@@ -1,35 +1,8 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
-const columns = [
-    { field: '_id', headerName: 'ID', width: 220 },
-    { field: 'name', headerName: 'Name', width: 190 },
-    {
-        field: 'quantity',
-        headerName: 'Quantity',
-        type: 'number',
-        width: 160,
-    },
-    {
-        field: 'price',
-        headerName: 'Price',
-        type: 'number',
-        width: 160,
-    },
-    {
-        field: 'expiryDate',
-        headerName: 'ExpiryDate',
-        width: 190
-    },
-    {
-        field: 'uploadOn',
-        headerName: 'Upload-On',
-        width: 160
-    }
-];
 
-
-export default function DataTable({ data }) {
+export default function DataTable({ data, col }) {
     const rows = data;
 
     console.log(rows);
@@ -38,8 +11,8 @@ export default function DataTable({ data }) {
             <DataGrid
                 getRowId={(row) => row._id}
                 rows={rows}
-                columns={columns}
-                pageSize={7}
+                columns={col}
+                // pageSize={7}
                 rowsPerPageOptions={[7]}
             />
         </div>
