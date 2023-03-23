@@ -10,21 +10,14 @@ export const columns = [
     {
         id: 'quantity',
         field: 'quantity',
-        headerName: 'Quantity Updated',
+        headerName: 'Updated Quantity',
         type: 'number',
         width: 160,
     },
     {
         id: 'total_quantity',
         field: 'total_quantity',
-        headerName: 'Total Quantity',
-        type: 'number',
-        width: 160,
-    },
-    {
-        id: 'price',
-        field: 'price',
-        headerName: 'Price',
+        headerName: 'Available Quantity',
         type: 'number',
         width: 160,
     },

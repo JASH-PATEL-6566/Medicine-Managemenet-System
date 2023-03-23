@@ -12,7 +12,6 @@ import { columns } from './columns';
 export default function HistoryTable({ rows }) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    console.log(rows);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -49,7 +48,6 @@ export default function HistoryTable({ rows }) {
                                         {columns.map((column) => {
                                             const value = row[column.id];
                                             if (column.id === 'type') {
-                                                console.log('in');
                                                 return (
                                                     <TableCell key={column.id} align={column.align} type={value === 'add' ? 'add_history' : value === 'sale' ? 'sale_history' : 'remove_history'} >
                                                         <div>

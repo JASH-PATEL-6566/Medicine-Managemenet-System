@@ -33,25 +33,41 @@ export default async function add(req, res) {
                         price,
                         expiryDate,
                         uploadOn
-                    },
-                    "history": {
-                        name,
-                        quantity,
-                        amount: (quantity * price),
-                        total_quantity: quantity,
-                        updateon: uploadOn,
-                        type: 'add'
                     }
                 }
             },
             { "new": true, "upsert": true },
             function (err, managerparent) {
                 if (err) throw err;
-                res.send({ msg: 'Medicine Successfully added' })
+
+                User.findById(uid)
+                    .then((data) => {
+                        const prev_data = data.history;
+                        const current_data = {
+                            name,
+                            quantity,
+                            amount: (quantity * price),
+                            total_quantity: quantity,
+                            updateon: uploadOn,
+                            type: 'add'
+                        }
+
+                        const new_data = [current_data, ...prev_data];
+                        User.findByIdAndUpdate(uid,
+                            {
+                                "$set": {
+                                    "history": new_data
+                                }
+                            },
+                            { "new": true, "upsert": true },
+                            function (err, managerparent) {
+                                if (err) throw err;
+                                res.send({ msg: 'Medicine Successfully added' })
+                            }
+                        )
+                    })
+
             })
-        // User.findById(uid, (user) => {
-        //     console.log(user);
-        // })
     } catch (error) {
         console.log(error);
         res.send({ msg: error });
