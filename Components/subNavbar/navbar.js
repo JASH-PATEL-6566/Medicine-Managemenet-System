@@ -19,28 +19,20 @@ export default function Navbar({ title }) {
                 <ul>
                     <li>Welcome, <span>{auth.currentUser && auth.currentUser.displayName}</span></li>
                     <li>
-                        <IconButton>
+                        <IconButton onClick={async () => {
+                            setLoading(true);
+                            await router.push('/user/history')
+                            setLoading(false);
+                        }}>
                             <HistoryIcon />
                         </IconButton>
                     </li>
                     <li>
-                        {/* <button onClick={() => {
-                            setLoading(true);
-                            setTimeout(() => {
-                                logout();
-                                // router.replace("/");
-                                setLoading(false);
-                            }, 1000);
-                        }}>
-                            <LogoutIcon />
-                        </button> */}
                         <IconButton onClick={async () => {
                             setLoading(true);
-                            // setTimeout(() => {
                             logout();
                             await router.push('/login')
                             setLoading(false);
-                            // }, 1000);
                         }
                         }><LogoutIcon /></IconButton>
                     </li>

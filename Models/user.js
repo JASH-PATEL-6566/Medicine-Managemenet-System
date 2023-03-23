@@ -1,4 +1,5 @@
 import { Schema, model, models } from 'mongoose';
+import historySchema from './history';
 import medicineSchema from './medicine';
 
 const userSchema = new Schema({
@@ -14,7 +15,8 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    stock: [medicineSchema]
+    stock: [medicineSchema],
+    history: [historySchema],
 })
 
 const User = models.user || model('user', userSchema);

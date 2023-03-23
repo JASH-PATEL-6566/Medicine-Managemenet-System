@@ -33,15 +33,25 @@ export default async function add(req, res) {
                         price,
                         expiryDate,
                         uploadOn
+                    },
+                    "history": {
+                        name,
+                        quantity,
+                        amount: (quantity * price),
+                        total_quantity: quantity,
+                        updateon: uploadOn,
+                        type: 'add'
                     }
                 }
             },
             { "new": true, "upsert": true },
             function (err, managerparent) {
                 if (err) throw err;
-                // console.log(managerparent);
                 res.send({ msg: 'Medicine Successfully added' })
             })
+        // User.findById(uid, (user) => {
+        //     console.log(user);
+        // })
     } catch (error) {
         console.log(error);
         res.send({ msg: error });

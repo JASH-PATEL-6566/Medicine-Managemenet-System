@@ -19,7 +19,7 @@ export default async function fetch(req, res) {
                 res.send("error")
             }
             else {
-                res.send(docs.stock);
+                res.send(docs);
             }
         })
     }
