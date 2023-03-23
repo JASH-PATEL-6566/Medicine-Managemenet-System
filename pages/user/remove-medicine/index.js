@@ -7,8 +7,6 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { auth } from "../../../firebase/firebase";
-import convertDate from "../../../utils/convertDate";
-import getCurrentDate from "../../../utils/getCurrentDate";
 import { StateContext } from "../../../Context/StateContext";
 import AlertDialog from '../../../Components/AlertDialog/AlertDialog'
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -46,14 +44,14 @@ const AddItem = () => {
     useEffect(() => {
         axios.post('/api/Medicine/fetch', { uid: auth.currentUser.uid })
             .then((res) => {
-                setMedicineData(res.data)
+                console.log(res);
+                setMedicineData(res.data.stock)
             })
     }, [])
 
     // handle submit 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         if (!checked && quantity > value.quantity) {
             dispatch({
                 type: 'open alert', playload: {
@@ -73,7 +71,6 @@ const AddItem = () => {
             });
             return;
         }
-
 
 
 
@@ -104,6 +101,8 @@ const AddItem = () => {
     if (state.isAlertOpen) {
         return <AlertDialog info={state.alertMsg} open={state.isAlertOpen} title={state.alertTitle} handleClose={closeAlert} />
     }
+    // console.log(medicineData.stock);
+    // console.log(value);
 
     return (
         <>
@@ -114,6 +113,7 @@ const AddItem = () => {
                     <Autocomplete
                         value={value}
                         onChange={(event, newValue) => {
+                            console.log(newValue);
                             setValue(newValue);
                         }}
                         inputValue={inputValue}

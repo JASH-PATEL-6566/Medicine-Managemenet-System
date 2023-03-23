@@ -25,7 +25,7 @@ const Items = () => {
             })
     }, [])
 
-    console.log(state);
+    // console.log(state);
 
     return (
         <>

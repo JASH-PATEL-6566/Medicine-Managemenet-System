@@ -15,7 +15,7 @@ export default async function add(req, res) {
         await connectMongo();
 
         // fetch data
-        const { uid, _id, quantity, remove_quantity } = req.body;
+        const { uid, _id, quantity, remove_quantity, name, price, uploadOn } = req.body;
         console.log(req.body);
 
         // find appropiate user for the addition
@@ -30,7 +30,31 @@ export default async function add(req, res) {
                     if (err) {
                         console.error(err);
                     } else {
-                        res.send({ msg: 'Medicie Successfully Removed...' })
+                        User.findById(uid)
+                            .then((data) => {
+                                const prev_data = data.history;
+                                const current_data = {
+                                    name,
+                                    quantity: remove_quantity,
+                                    total_quantity: (quantity - remove_quantity),
+                                    updateon: uploadOn,
+                                    type: 'remove'
+                                }
+
+                                const new_data = [current_data, ...prev_data];
+                                User.findByIdAndUpdate(uid,
+                                    {
+                                        "$set": {
+                                            "history": new_data
+                                        }
+                                    },
+                                    { "new": true, "upsert": true },
+                                    function (err, managerparent) {
+                                        if (err) throw err;
+                                        res.send({ msg: 'Medicie Successfully Removed...' })
+                                    }
+                                )
+                            })
                     }
                 });
             }
