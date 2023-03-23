@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 
-export default function DataTable({ data, col }) {
+export default function DataTable({ data, col, type }) {
     const rows = data;
 
     console.log(rows);
@@ -14,6 +14,7 @@ export default function DataTable({ data, col }) {
                 columns={col}
                 // pageSize={7}
                 rowsPerPageOptions={[7]}
+                className="table"
             />
         </div>
     );

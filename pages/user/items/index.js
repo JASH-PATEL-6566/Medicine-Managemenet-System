@@ -21,7 +21,7 @@ const Items = () => {
     useEffect(() => {
         axios.post('/api/Medicine/fetch', { uid: auth.currentUser.uid })
             .then((res) => {
-                setMedicineData(res.data)
+                setMedicineData(res.data.stock)
             })
     }, [])
 
