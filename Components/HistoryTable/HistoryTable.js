@@ -71,6 +71,7 @@ export default function HistoryTable({ rows }) {
                 </Table>
             </TableContainer>
             <TablePagination
+                sx={{ overflow: "hidden" }}
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
                 count={rows.length}

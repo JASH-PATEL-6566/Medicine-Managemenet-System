@@ -94,18 +94,6 @@ section {
     padding: 1em;
 }
 
-.table .MuiDataGrid-cell--textCenter {
-    /* background-color: rgba(1, 143, 1, 0.548); */
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.table .MuiDataGrid-cell--textCenter > div {
-    background-color: rgba(255, 0, 0, 0.219);
-    padding: 5px 20px;
-    border-radius: 2em;
-}
-
 [type*="remove"] div {
     background-color: rgba(255, 0, 0, 0.219);
     width: 7em;
@@ -126,4 +114,8 @@ section {
     padding: 5px 0;
     width: 7em;
     border-radius: 6px;
+}
+
+.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
+    overflow: hidden;
 }
