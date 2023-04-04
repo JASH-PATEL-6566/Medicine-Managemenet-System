@@ -16,10 +16,5 @@
 }
 
 .input_container .input {
-    width: 40%;
-}
-
-.btn {
-    width: 6em;
-    margin: 0;
+    width: 40%; /* margin: 0; */
 }
