@@ -3,9 +3,10 @@ import Image from 'next/image';
 import easyToManage from '../Images/easyToManage.webp';
 import userFriendly from '../Images/userFriendly.webp';
 import alwaysImproving from '../Images/alwaysImproving.webp';
-import Head from 'next/Head';
+import Head from 'next/head';
 
 export default function Home() {
+  console.log(process.env);
   return (
     <>
       <Head>
