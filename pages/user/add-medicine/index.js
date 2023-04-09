@@ -14,6 +14,7 @@ import convertDate from "../../../utils/convertDate";
 import getCurrentDate from "../../../utils/getCurrentDate";
 import { StateContext } from "../../../Context/StateContext";
 import AlertDialog from '../../../Components/AlertDialog/AlertDialog'
+import Head from "next/head";
 
 const AddItem = () => {
 
@@ -99,6 +100,9 @@ const AddItem = () => {
 
     return (
         <>
+            <Head>
+                <title>MedAssist | Add Medicine</title>
+            </Head>
             <Navbar title="Add Medicine" />
             <NavigationBar />
             <div className={classes.add_container}>

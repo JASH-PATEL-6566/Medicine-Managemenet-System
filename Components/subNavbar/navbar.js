@@ -9,7 +9,7 @@ import { IconButton } from '@mui/material/';
 import { auth } from "../../firebase/firebase";
 
 export default function Navbar({ title }) {
-    const { currentUser, logout } = useAuth();
+    const { logout } = useAuth();
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     return (

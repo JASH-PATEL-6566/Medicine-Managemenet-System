@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 import { useAuth } from '../../firebase/Context/AuthContext';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import Head from 'next/Head'
+import Head from 'next/head'
 import Loading from '../../Components/Loading/Loading';
 
 export default function login() {

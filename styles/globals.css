@@ -116,6 +116,22 @@ section {
     border-radius: 6px;
 }
 
+[update*="red_color"] div {
+    color: red;
+    display: flex;
+    align-items: center;
+}
+[update*="green_color"] div {
+    color: green;
+    display: flex;
+    align-items: center;
+}
+[update*="orange_color"] div {
+    color: orange;
+    display: flex;
+    align-items: center;
+}
+
 .css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
     overflow: hidden;
 }

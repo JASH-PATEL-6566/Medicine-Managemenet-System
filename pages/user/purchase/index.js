@@ -1,6 +1,6 @@
 import classes from './purchase.module.css';
 import Navbar from "../../../Components/subNavbar/navbar";
-import Head from 'next/Head';
+import Head from 'next/head';
 
 const Items = () => {
     return (

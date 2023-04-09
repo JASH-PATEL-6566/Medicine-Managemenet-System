@@ -1,0 +1,44 @@
+.add_container {
+    /* border: 2px solid black; */
+    /* margin: 1em; */
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    width: 100%;
+    /* padding: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 40%;
+    /* border: 2px solid black; */
+}
+
+.input {
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-inline: 20px;
+}
+
+.cal {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.checkbox {
+    color: rgb(88, 88, 88);
+}

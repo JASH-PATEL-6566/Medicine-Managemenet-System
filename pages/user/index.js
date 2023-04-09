@@ -1,6 +1,6 @@
 import classes from './user.module.css';
 import Navbar from "../../Components/subNavbar/navbar";
-import Head from 'next/Head';
+import Head from 'next/head';
 import { useAuth } from '../../firebase/Context/AuthContext';
 import Widget from '../../Components/Widget/Widget';
 import Feature from '../../Components/Feature/Feature';
