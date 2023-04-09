@@ -1,6 +1,7 @@
 import { Schema, model, models } from 'mongoose';
 import historySchema from './history';
 import medicineSchema from './medicine';
+import salesSchema from './sales';
 
 const userSchema = new Schema({
     _id: {
@@ -17,6 +18,7 @@ const userSchema = new Schema({
     },
     stock: [medicineSchema],
     history: [historySchema],
+    sales: [salesSchema]
 })
 
 const User = models.user || model('user', userSchema);

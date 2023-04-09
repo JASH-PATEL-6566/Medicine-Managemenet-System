@@ -1,5 +1,5 @@
 import classes from './loading.module.css';
-import Head from 'next/Head';
+import Head from 'next/head';
 
 export default function Loading() {
     return (

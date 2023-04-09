@@ -8,10 +8,12 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { columns } from './columns';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 export default function HistoryTable({ rows }) {
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [rowsPerPage, setRowsPerPage] = React.useState(7);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -57,10 +59,15 @@ export default function HistoryTable({ rows }) {
                                                 )
                                             }
                                             return (
-                                                <TableCell key={column.id} align={column.align}>
-                                                    {column.format && typeof value === 'number'
-                                                        ? column.format(value)
-                                                        : value}
+                                                <TableCell key={column.id} align={column.align} update={column.id === "quantity" ? (row["type"] === 'add' ? 'green_color' : row["type"] === 'sale' ? "orange_color" : "red_color") : ''}>
+                                                    <div>
+                                                        {
+                                                            column.id === "quantity" ? row["type"] === "add" ? <ArrowDropUpIcon /> : <ArrowDropDownIcon /> : ""
+                                                        }
+                                                        {column.format && typeof value === 'number'
+                                                            ? column.format(value)
+                                                            : value}
+                                                    </div>
                                                 </TableCell>
                                             );
                                         })}
@@ -71,7 +78,7 @@ export default function HistoryTable({ rows }) {
                 </Table>
             </TableContainer>
             <TablePagination
-                sx={{ overflow: "hidden" }}
+                sx={{ overflow: "hidden", display: "flex", alignItems: 'center', justifyContent: "flex-end" }}
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
                 count={rows.length}

@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../../firebase/Context/AuthContext';
 import { useRouter } from 'next/router'
-import Head from 'next/Head';
+import Head from 'next/head';
 import { auth } from '../../firebase/firebase';
 import { updateProfile } from 'firebase/auth';
 import axios from 'axios';

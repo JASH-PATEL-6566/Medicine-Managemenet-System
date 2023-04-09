@@ -15,8 +15,8 @@ export default async function add(req, res) {
         await connectMongo();
 
         // fetch data
-        const { uid, _id, quantity, remove_quantity, name, price, uploadOn } = req.body;
-        console.log(req.body);
+        const { uid, _id, quantity, remove_quantity, name, type, uploadOn } = req.body;
+        // console.log(req.body);
 
         // find appropiate user for the addition
 
@@ -38,7 +38,7 @@ export default async function add(req, res) {
                                     quantity: remove_quantity,
                                     total_quantity: (quantity - remove_quantity),
                                     updateon: uploadOn,
-                                    type: 'remove'
+                                    type
                                 }
 
                                 const new_data = [current_data, ...prev_data];

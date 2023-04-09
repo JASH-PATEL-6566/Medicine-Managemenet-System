@@ -1,6 +1,6 @@
 import classes from './history.module.css';
 import React, { useEffect, useState } from 'react'
-// import Head from 'next/head'
+import Head from 'next/head'
 import Navbar from '../../../Components/subNavbar/navbar';
 import DataTable from '../../../Components/DataTabel/DataTabel';
 import { columns } from '../../../Components/DataTabel/History/Column'
@@ -23,9 +23,9 @@ function History() {
 
     return (
         <>
-            {/* <Head>
+            <Head>
                 <title>MedAssist | History</title>
-            </Head> */}
+            </Head>
             <Navbar title="History" />
             <div className={classes.main_container}>
                 {/* <DataTable data={data} col={columns} class="mui_history_table" /> */}

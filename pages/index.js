@@ -6,7 +6,6 @@ import alwaysImproving from '../Images/alwaysImproving.webp';
 import Head from 'next/head';
 
 export default function Home() {
-  console.log(process.env);
   return (
     <>
       <Head>

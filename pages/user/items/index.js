@@ -1,6 +1,6 @@
 import classes from './items.module.css';
 import Navbar from "../../../Components/subNavbar/navbar";
-import Head from 'next/Head';
+import Head from 'next/head';
 import DataTable from '../../../Components/DataTabel/DataTabel';
 import Button from '@mui/material/Button';
 import axios from 'axios'

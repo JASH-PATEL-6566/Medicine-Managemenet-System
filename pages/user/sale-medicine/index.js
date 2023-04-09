@@ -25,6 +25,7 @@ const AddItem = () => {
     const [checked, setChecked] = useState(true)
     const [quantity, setQuantity] = useState("");
 
+
     // router
     const router = useRouter();
 
@@ -75,7 +76,7 @@ const AddItem = () => {
 
 
 
-        axios.post(process.env.DB + `/Medicine/${checked ? 'whole_remove' : 'partial_remove'}`, (checked ? { uid: auth.currentUser.uid, ...value, type: "remove" } : { uid: auth.currentUser.uid, ...value, remove_quantity: quantity, type: "remove" }))
+        axios.post(process.env.DB + `/Medicine/${checked ? 'whole_remove' : 'partial_remove'}`, (checked ? { uid: auth.currentUser.uid, ...value, type: "sale" } : { uid: auth.currentUser.uid, ...value, remove_quantity: quantity, type: "sale" }))
             .then((res) => {
                 // open pop up with specific message
                 dispatch({
@@ -86,7 +87,7 @@ const AddItem = () => {
                 })
 
                 // route to items page when medicine was added
-                router.replace('/user/items')
+                router.replace('/user/sale')
             })
             .catch(err => {
                 dispatch({
@@ -97,7 +98,6 @@ const AddItem = () => {
                 })
             })
     }
-
 
     if (state.isAlertOpen) {
         return <AlertDialog info={state.alertMsg} open={state.isAlertOpen} title={state.alertTitle} handleClose={closeAlert} />
@@ -111,7 +111,7 @@ const AddItem = () => {
                 <title>MedAssist | Remove Medicine</title>
             </Head>
             <Navbar title="Remove Medicine" />
-            <NavigationBar dest="items" />
+            <NavigationBar dest="sale" />
             <div className={classes.add_container}>
                 <div className={classes.container}>
                     <Autocomplete
@@ -156,11 +156,11 @@ const AddItem = () => {
                             onChange={handleChange}
                             inputProps={{ 'aria-label': 'controlled' }}
                         />}
-                        label="You want to remove whole stock of this medicine?"
+                        label="You want to sale whole stock of this medicine?"
                     />
                     <div className={classes.btn}>
                         <Button color='error' variant="contained" type="submit" onClick={handleSubmit}>
-                            Remove
+                            Sale
                         </Button>
                     </div>
                 </div>
