@@ -3,14 +3,26 @@ export const columns_sale = [
     { field: 'name', headerName: 'Name', width: 190 },
     {
         field: 'quantity',
-        headerName: 'Quantity',
+        headerName: 'Sales Quantity',
         type: 'number',
         width: 160,
     },
     {
-        field: 'price',
-        headerName: 'Price',
+        field: 'remaining_quantity',
+        headerName: 'Rmaining Qunatity',
         type: 'number',
         width: 160,
-    }
+    },
+    {
+        field: 'sales_ammount',
+        headerName: 'Sales Amount',
+        type: 'number',
+        width: 160,
+    },
+    {
+        field: 'date',
+        headerName: 'Date',
+        type: 'string',
+        width: 180,
+    },
 ];

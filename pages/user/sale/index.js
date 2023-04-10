@@ -9,19 +9,18 @@ import { useContext, useEffect, useState } from 'react';
 import { auth } from '../../../firebase/firebase';
 import { StateContext } from '../../../Context/StateContext';
 import SnackbarTag from '../../../Components/Snackbar/Snackbar';
-import { columns } from '../../../Components/DataTabel/Items/Column';
+import { columns_sale } from '../../../Components/DataTabel/Sales/Column';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 const Sales = () => {
     const router = useRouter();
     const [medicineData, setMedicineData] = useState([]);
     const { state, dispatch } = useContext(StateContext);
-    // console.log(medicineData);
 
     useEffect(() => {
         axios.post('/api/Medicine/fetch', { uid: auth.currentUser.uid })
             .then((res) => {
-                setMedicineData(res.data.stock)
+                setMedicineData(res.data.sales)
             })
     }, [])
 
@@ -30,10 +29,10 @@ const Sales = () => {
     return (
         <>
             <Head>
-                <title>MedAssist | Items</title>
+                <title>MedAssist | Sales</title>
             </Head>
             <div className={classes.main_container}>
-                <Navbar title="Items" />
+                <Navbar title="Sales" />
                 <div className={classes.dataTabelContainer}>
                     <div className={classes.input_container}>
                         <div className={classes.btn}>
@@ -42,7 +41,7 @@ const Sales = () => {
                             </Button>
                         </div>
                     </div>
-                    <DataTable data={medicineData} col={columns} />
+                    <DataTable data={medicineData} col={columns_sale} />
                 </div>
             </div>
             <SnackbarTag
