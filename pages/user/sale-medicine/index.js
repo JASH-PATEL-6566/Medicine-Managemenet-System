@@ -12,6 +12,7 @@ import AlertDialog from '../../../Components/AlertDialog/AlertDialog'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Head from "next/head";
+import getCurrentDate from './../../../utils/getCurrentDate';
 
 const AddItem = () => {
 
@@ -24,7 +25,6 @@ const AddItem = () => {
     const [inputValue, setInputValue] = useState("");
     const [checked, setChecked] = useState(true)
     const [quantity, setQuantity] = useState("");
-
 
     // router
     const router = useRouter();
@@ -76,7 +76,7 @@ const AddItem = () => {
 
 
 
-        axios.post(process.env.DB + `/Medicine/${checked ? 'whole_remove' : 'partial_remove'}`, (checked ? { uid: auth.currentUser.uid, ...value, type: "sale" } : { uid: auth.currentUser.uid, ...value, remove_quantity: quantity, type: "sale" }))
+        axios.post(process.env.DB + `/Medicine/${checked ? 'whole_sale' : 'partial_sale'}`, (checked ? { uid: auth.currentUser.uid, ...value, type: "sale", date: getCurrentDate() } : { uid: auth.currentUser.uid, ...value, remove_quantity: quantity, type: "sale", date: getCurrentDate() }))
             .then((res) => {
                 // open pop up with specific message
                 dispatch({
@@ -108,9 +108,9 @@ const AddItem = () => {
     return (
         <>
             <Head>
-                <title>MedAssist | Remove Medicine</title>
+                <title>MedAssist | Sale Medicine</title>
             </Head>
-            <Navbar title="Remove Medicine" />
+            <Navbar title="Sale Medicine" />
             <NavigationBar dest="sale" />
             <div className={classes.add_container}>
                 <div className={classes.container}>

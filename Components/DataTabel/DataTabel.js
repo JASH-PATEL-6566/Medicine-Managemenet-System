@@ -4,7 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 
 export default function DataTable({ data, col, type }) {
     const rows = data;
-
+    console.log(rows);
     // console.log(rows);
     return (
         <div style={{ height: 475, width: '100%' }}>
