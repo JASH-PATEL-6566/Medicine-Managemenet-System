@@ -18,6 +18,7 @@ function History() {
             .then((res) => {
                 const { history } = res.data;
                 setData(history);
+                dispatch({ type: 'reset history badger' });
             })
     }, [])
 

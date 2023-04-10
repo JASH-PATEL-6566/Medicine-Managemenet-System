@@ -30,31 +30,30 @@ export default async function add(req, res) {
                     if (err) {
                         console.error(err);
                     } else {
-                        User.findById(uid)
-                            .then((data) => {
-                                const prev_data = data.history;
-                                const current_data = {
-                                    name,
-                                    quantity: remove_quantity,
-                                    total_quantity: (quantity - remove_quantity),
-                                    updateon: uploadOn,
-                                    type
-                                }
-
-                                const new_data = [current_data, ...prev_data];
-                                User.findByIdAndUpdate(uid,
-                                    {
-                                        "$set": {
-                                            "history": new_data
-                                        }
-                                    },
-                                    { "new": true, "upsert": true },
-                                    function (err, managerparent) {
-                                        if (err) throw err;
-                                        res.send({ msg: 'Medicie Successfully Removed...' })
+                        User.findOneAndUpdate(
+                            { uid },
+                            {
+                                $push: {
+                                    history: {
+                                        $each: [{
+                                            name,
+                                            quantity: remove_quantity,
+                                            total_quantity: (quantity - remove_quantity),
+                                            updateon: uploadOn,
+                                            type
+                                        }], $position: 0
                                     }
-                                )
-                            })
+                                },
+                            },
+                            { new: true },
+                            function removeConnectionsCB(err, obj) {
+                                if (err) {
+                                    console.error(err);
+                                } else {
+                                    res.send({ msg: 'Medicie Successfully Sell...' })
+                                }
+                            }
+                        );
                     }
                 });
             }
