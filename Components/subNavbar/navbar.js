@@ -8,7 +8,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import { IconButton } from '@mui/material/';
 import { auth } from "../../firebase/firebase";
 
-export default function Navbar({ title }) {
+export default function Navbar({ title, badger }) {
     const { logout } = useAuth();
     const [loading, setLoading] = useState(false);
     const router = useRouter();
