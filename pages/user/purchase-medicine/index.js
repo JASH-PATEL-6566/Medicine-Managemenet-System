@@ -71,7 +71,7 @@ const AddItem = () => {
                     })
 
                     // route to items page when medicine was added
-                    router.replace('/user/items')
+                    router.replace('/user/purchase')
                 })
                 .catch(err => {
                     dispatch({

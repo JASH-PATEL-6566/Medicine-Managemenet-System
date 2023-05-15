@@ -36,11 +36,11 @@ const Items = () => {
                 <Navbar title="Items" />
                 <div className={classes.dataTabelContainer}>
                     <div className={classes.input_container}>
-                        <div className={classes.btn}>
+                        {/* <div className={classes.btn}>
                             <Button startIcon={<AddIcon />} fullWidth={true} variant="contained" onClick={() => router.replace('/user/add-medicine')}>
                                 Add
                             </Button>
-                        </div>
+                        </div> */}
                         <div className={classes.btn}>
                             <Button startIcon={<DeleteIcon />} fullWidth={true} variant="contained" color="error" onClick={() => router.replace('/user/remove-medicine')}>
                                 Remove
