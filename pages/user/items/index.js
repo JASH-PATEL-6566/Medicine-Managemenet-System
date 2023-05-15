@@ -27,8 +27,6 @@ const Items = () => {
             })
     }, [])
 
-    // console.log(state);
-
     return (
         <>
             <Head>

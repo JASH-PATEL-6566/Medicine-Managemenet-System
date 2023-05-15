@@ -117,7 +117,7 @@ const AddItem = () => {
                     <Autocomplete
                         value={value}
                         onChange={(event, newValue) => {
-                            console.log(newValue);
+                            // console.log(newValue);
                             setValue(newValue);
                         }}
                         inputValue={inputValue}

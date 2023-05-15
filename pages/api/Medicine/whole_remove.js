@@ -16,7 +16,7 @@ export default async function add(req, res) {
 
         // fetch data
         const { uid, _id, quantity, name, type, uploadOn } = req.body;
-        console.log(req.body);
+        // console.log(req.body);
 
         // find appropiate user for the addition
         User.findOneAndUpdate(
@@ -62,7 +62,7 @@ export default async function add(req, res) {
 
         // res.send({ msg: 'Medicie Successfully Removed...' })
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.send({ msg: error });
     }
 }
