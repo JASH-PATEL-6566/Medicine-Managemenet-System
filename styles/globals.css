@@ -135,3 +135,7 @@ section {
 .css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
     overflow: hidden;
 }
+
+.MuiDataGrid-columnHeaderTitleContainer div div {
+    font-weight: 600;
+}

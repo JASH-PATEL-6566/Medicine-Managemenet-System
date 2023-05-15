@@ -37,11 +37,11 @@ export default function SignUp() {
                 axios.post(process.env.DB + '/User/addUser', { displayName: auth.currentUser.displayName, uid, email })
                     .then((res) => {
                         // router.push('/login')
-                        console.log(res);
+                        // console.log(res);
                         setLoading(false);
                     })
                     .catch(err => {
-                        console.log(err);
+                        // console.log(err);
                         setLoading(false);
                     })
             })

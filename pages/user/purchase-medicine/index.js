@@ -101,10 +101,10 @@ const AddItem = () => {
     return (
         <>
             <Head>
-                <title>MedAssist | Add Medicine</title>
+                <title>MedAssist | Purchase Medicine</title>
             </Head>
-            <Navbar title="Add Medicine" />
-            <NavigationBar />
+            <Navbar title="Purchase Medicine" />
+            <NavigationBar dest="purchase" />
             <div className={classes.add_container}>
                 <div className={classes.container}>
                     <TextField
@@ -147,7 +147,7 @@ const AddItem = () => {
                     </div>
                     <div className={classes.btn}>
                         <Button variant="contained" type="submit" onClick={handleSubmit}>
-                            ADD
+                            PURCHASE
                         </Button>
                     </div>
                 </div>

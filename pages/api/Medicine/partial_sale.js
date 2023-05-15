@@ -26,7 +26,7 @@ export default async function add(req, res) {
             } else {
                 // console.log(user);
                 user.stock.find(s => s._id.toString() === _id).quantity = quantity - remove_quantity;
-                console.log("in");
+                // console.log("in");
                 user.save((err, updatedUser) => {
                     if (err) {
                         console.error(err);

@@ -1,17 +1,16 @@
 import classes from './history.module.css';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Head from 'next/head'
 import Navbar from '../../../Components/subNavbar/navbar';
-import DataTable from '../../../Components/DataTabel/DataTabel';
-import { columns } from '../../../Components/DataTabel/History/Column'
 import axios from 'axios';
 import { auth } from '../../../firebase/firebase';
 import HistoryTable from '../../../Components/HistoryTable/HistoryTable';
+import { StateContext } from '../../../Context/StateContext';
 
 
 function History() {
     const [data, setData] = useState([]);
-    // console.log(columns);
+    const { state, dispatch } = useContext(StateContext);
 
     useEffect(() => {
         axios.post('/api/Medicine/fetch', { uid: auth.currentUser.uid })
@@ -29,7 +28,6 @@ function History() {
             </Head>
             <Navbar title="History" />
             <div className={classes.main_container}>
-                {/* <DataTable data={data} col={columns} class="mui_history_table" /> */}
                 <HistoryTable rows={data} />
             </div>
         </>
