@@ -30,8 +30,8 @@ export default function Navbar({ title, badger }) {
                     <li>
                         <IconButton onClick={async () => {
                             setLoading(true);
-                            logout();
-                            await router.push('/login')
+                            await logout();
+                            router.push('/login')
                             setLoading(false);
                         }
                         }><LogoutIcon /></IconButton>

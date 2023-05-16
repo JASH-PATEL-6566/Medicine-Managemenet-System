@@ -25,6 +25,8 @@ export default function User() {
         sale: 0
     });
 
+    console.log(auth.currentUser.uid);
+
 
     useEffect(() => {
         axios.post('/api/Medicine/fetch', { uid: auth.currentUser.uid })
