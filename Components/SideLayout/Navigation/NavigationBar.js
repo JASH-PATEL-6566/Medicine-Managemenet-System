@@ -4,11 +4,14 @@ import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useRouter } from 'next/router';
 
-function NavigationBar({ dest }) {
+function NavigationBar() {
     const router = useRouter();
     return (
         <div className={classes.nav}>
-            <Button color="info" onClick={() => router.replace(`/user/${dest}`)}>
+            <Button color="info" onClick={() => {
+                window.history.back();
+            }}>
+
                 <ArrowBackIosIcon /> Back
             </Button>
         </div>

@@ -5,8 +5,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import SellIcon from '@mui/icons-material/Sell';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { useRouter } from 'next/router';
 
 export default function Widget({ type }) {
+
+    const router = useRouter();
 
     const amount = 1000;
     const diff = 20;
@@ -14,22 +17,23 @@ export default function Widget({ type }) {
     let data;
 
     switch (type) {
-        case "profit":
-            data = {
-                title: "Profit",
-                icon: <TimelineIcon className={classes.icon} style={{
-                    color: "crimson",
-                    backgroundColor: "rgba(255,0,0,0.2)",
-                }}
-                />,
-                link: "Profit Detail",
-                pin: <FiberManualRecordIcon className={classes.icon2} style={{
-                    color: "rgba(0, 0, 0, 0.3)",
-                    backgroundColor: "rgb(216, 216, 216)",
-                    boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
-                }} />
-            }
-            break;
+        // case "profit":
+        //     data = {
+        //         title: "Profit",
+        //         icon: <TimelineIcon className={classes.icon} style={{
+        //             color: "crimson",
+        //             backgroundColor: "rgba(255,0,0,0.2)",
+        //         }}
+        //         />,
+        //         link: "Profit Detail",
+        //         dest: "profit",
+        //         pin: <FiberManualRecordIcon className={classes.icon2} style={{
+        //             color: "rgba(0, 0, 0, 0.3)",
+        //             backgroundColor: "rgb(216, 216, 216)",
+        //             boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
+        //         }} />
+        //     }
+        //     break;
         case "purchase":
             data = {
                 title: "Purchase",
@@ -38,6 +42,7 @@ export default function Widget({ type }) {
                     backgroundColor: "rgba(218,165,32,0.2)",
                 }} />,
                 link: "Purchase Detail",
+                dest: "purchase",
                 pin: <FiberManualRecordIcon className={classes.icon2} style={{
                     color: "rgba(0, 0, 0, 0.3)",
                     backgroundColor: "rgb(216, 216, 216)",
@@ -53,6 +58,7 @@ export default function Widget({ type }) {
                     backgroundColor: "rgba(0,128,0,0.2)",
                 }} />,
                 link: "Sales Detail",
+                dest: "sale",
                 pin: <FiberManualRecordIcon className={classes.icon2} style={{
                     color: "rgba(0, 0, 0, 0.3)",
                     backgroundColor: "rgb(216, 216, 216)",
@@ -83,7 +89,9 @@ export default function Widget({ type }) {
             <div className={classes.left}>
                 <span className={classes.title}>{data.title}</span>
                 <span className={classes.counter}>₹ {amount}</span>
-                <span className={classes.link}>{data.link}</span>
+                <span className={classes.link} onClick={(e) => {
+                    router.replace("user/" + data.dest)
+                }}>{data.link}</span>
             </div>
             <div className={classes.right}>
                 {data.pin}

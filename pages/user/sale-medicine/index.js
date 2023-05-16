@@ -111,7 +111,7 @@ const AddItem = () => {
                 <title>MedAssist | Sale Medicine</title>
             </Head>
             <Navbar title="Sale Medicine" />
-            <NavigationBar dest="sale" />
+            <NavigationBar />
             <div className={classes.add_container}>
                 <div className={classes.container}>
                     <Autocomplete
