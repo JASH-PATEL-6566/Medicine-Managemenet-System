@@ -14,3 +14,43 @@
 .charts {
     padding: 5px 20px;
 }
+
+.btn_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 1.2em;
+    /* padding: 10px; */
+    padding: 0.6em;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+    border-radius: 10px;
+    height: 120px;
+}
+
+.btn_container button {
+    font-size: 2.5em;
+    padding: 0.3em;
+    border-style: none;
+    outline: none;
+    background-color: rgba(45, 45, 255, 0.603);
+    border-radius: 0.4em;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn_container button[btn_type="sale"] {
+    background-color: rgba(0, 128, 0, 0.623);
+}
+
+.btn_container button[btn_type="sale"]:hover {
+    background-color: white;
+}
+
+.btn_container button[btn_type="remove"] {
+    background-color: rgba(255, 0, 0, 0.589);
+}
+
+.btn_container button[btn_type="remove"]:hover {
+    background-color: white;
+}

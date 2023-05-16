@@ -104,7 +104,7 @@ const AddItem = () => {
                 <title>MedAssist | Purchase Medicine</title>
             </Head>
             <Navbar title="Purchase Medicine" />
-            <NavigationBar dest="purchase" />
+            <NavigationBar />
             <div className={classes.add_container}>
                 <div className={classes.container}>
                     <TextField

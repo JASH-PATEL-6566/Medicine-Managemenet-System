@@ -16,6 +16,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    total_purchase: {
+        type: Number,
+        required: true
+    },
     stock: [medicineSchema],
     history: [historySchema],
     sales: [salesSchema]

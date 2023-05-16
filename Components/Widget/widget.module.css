@@ -39,6 +39,7 @@
     width: max-content;
     font-size: 12px;
     border-bottom: 1px solid gray;
+    cursor: pointer;
 }
 
 .positive {

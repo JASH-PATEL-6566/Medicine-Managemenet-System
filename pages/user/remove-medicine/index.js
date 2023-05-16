@@ -111,7 +111,7 @@ const AddItem = () => {
                 <title>MedAssist | Remove Medicine</title>
             </Head>
             <Navbar title="Remove Medicine" />
-            <NavigationBar dest="items" />
+            <NavigationBar />
             <div className={classes.add_container}>
                 <div className={classes.container}>
                     <Autocomplete
