@@ -25,6 +25,9 @@ const AddItem = () => {
     const [inputValue, setInputValue] = useState("");
     const [checked, setChecked] = useState(true)
     const [quantity, setQuantity] = useState("");
+    let emergency = false;
+
+    console.log(value);
 
     // router
     const router = useRouter();
@@ -46,15 +49,17 @@ const AddItem = () => {
     useEffect(() => {
         axios.post('/api/Medicine/fetch', { uid: auth.currentUser.uid })
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 setMedicineData(res.data.stock)
             })
     }, [])
 
+
+    // console.log(checked);
     // handle submit 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!checked && quantity > value.quantity) {
+        if (!checked && parseInt(quantity) > value.quantity) {
             dispatch({
                 type: 'open alert', playload: {
                     title: "Invalid Input.....",
@@ -62,6 +67,16 @@ const AddItem = () => {
                 }
             });
             return;
+        }
+
+        if (!checked && parseInt(quantity) === value.quantity) {
+            dispatch({
+                type: 'open alert', playload: {
+                    title: "Alert",
+                    msg: "You want to sale all quantity which is present."
+                }
+            });
+            emergency = true;
         }
 
         if (!checked && quantity === "") {
@@ -76,7 +91,7 @@ const AddItem = () => {
 
 
 
-        axios.post(process.env.DB + `/Medicine/${checked ? 'whole_sale' : 'partial_sale'}`, (checked ? { uid: auth.currentUser.uid, ...value, type: "sale", date: getCurrentDate() } : { uid: auth.currentUser.uid, ...value, remove_quantity: quantity, type: "sale", date: getCurrentDate() }))
+        axios.post(process.env.DB + `/Medicine/${!emergency ? `${checked ? 'whole_sale' : 'partial_sale'}` : 'whole_sale'}`, (emergency ? (checked ? { uid: auth.currentUser.uid, ...value, type: "sale", date: getCurrentDate() } : { uid: auth.currentUser.uid, ...value, remove_quantity: quantity, type: "sale", date: getCurrentDate() }) : { uid: auth.currentUser.uid, ...value, type: "sale", date: getCurrentDate() }))
             .then((res) => {
                 // open pop up with specific message
                 dispatch({
@@ -85,7 +100,7 @@ const AddItem = () => {
                         type: 'success'
                     }
                 })
-
+                emergency = false;
                 // route to items page when medicine was added
                 router.replace('/user/sale')
             })
@@ -159,7 +174,7 @@ const AddItem = () => {
                         label="You want to sale whole stock of this medicine?"
                     />
                     <div className={classes.btn}>
-                        <Button color='error' variant="contained" type="submit" onClick={handleSubmit}>
+                        <Button color='error' disabled={value ? false : true} variant="contained" type="submit" onClick={handleSubmit}>
                             Sale
                         </Button>
                     </div>

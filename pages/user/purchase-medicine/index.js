@@ -52,15 +52,15 @@ const AddItem = () => {
     // handle submit 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let currentDate = getCurrentDate();
+        let currentDate = new Date();
+        const ex_date = `${value.year()}-${value.month() > 9 ? value.month() : `0${value.month()}`}-${value.date() > 9 ? value.date() : `0${value.date()}`} `;
+        const cu_date = `${currentDate.getFullYear()}-${currentDate.getMonth() > 9 ? currentDate.getMonth() : `0${currentDate.getMonth()}`}-${currentDate.getDate() > 9 ? currentDate.getDate() : `0${currentDate.getDate()}`} `;
+        const expiryDate = new Date(ex_date);
 
-        const expiryDate = `${value.date()}/${value.month()}/${value.year()}`;
-        const up = convertDate(currentDate)
-        const ex = convertDate(expiryDate)
 
         // if medicine is not expiyred this part of code is run
-        if (ex > up) {
-            axios.post(process.env.DB + '/Medicine/add', { uid: auth.currentUser.uid, ...data, expiryDate, uploadOn: currentDate })
+        if (expiryDate > currentDate) {
+            axios.post(process.env.DB + '/Medicine/add', { uid: auth.currentUser.uid, ...data, expiryDate: ex_date, uploadOn: cu_date })
                 .then((res) => {
                     // open pop up with specific message
                     dispatch({

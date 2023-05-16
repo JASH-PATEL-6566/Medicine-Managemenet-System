@@ -17,10 +17,11 @@
 
 .btn_container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    flex: 1;
-    gap: 1.2em;
+    align-items: flex-start;
+    /* flex: 1; */
+    gap: 0.5em;
     /* padding: 10px; */
     padding: 0.6em;
     /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
@@ -29,7 +30,7 @@
 }
 
 .btn_container button {
-    font-size: 2.5em;
+    font-size: 1.5em;
     padding: 0.3em;
     border-style: none;
     outline: none;
@@ -53,4 +54,16 @@
 
 .btn_container button[btn_type="remove"]:hover {
     background-color: white;
+}
+
+.btn_sub_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.7em;
+}
+
+.btn_sub_container span {
+    font-size: 1.05em;
+    font-weight: 600;
 }

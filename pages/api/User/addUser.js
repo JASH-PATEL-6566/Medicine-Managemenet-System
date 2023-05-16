@@ -12,7 +12,7 @@ export default async function add(req, res) {
     try {
         // try to connect database
         await connectMongo();
-
+        console.log("in");
         // fetch data
         const { displayName, email, uid } = req.body;
         // console.log(req.body);

@@ -18,12 +18,16 @@ export default async function add(req, res) {
         const { uid, _id, quantity, name, type, uploadOn, price, date } = req.body;
         // console.log(req.body);
 
+        const currentAmount = quantity * price;
         // find appropiate user for the addition
         User.findOneAndUpdate(
             { uid },
             {
                 $pull: {
                     stock: { _id }
+                },
+                $inc: {
+                    totalSale: currentAmount
                 },
                 $push: {
                     history: {

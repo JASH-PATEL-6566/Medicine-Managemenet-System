@@ -89,11 +89,11 @@ export default function SignUp() {
                         </div>
                         <div className={classes.pass_con}>
                             <label htmlFor="pass">Your Password : </label>
-                            <input type="password" ref={passRef} required id='pass' placeholder='Password...' />
+                            <input type="password" ref={passRef} autoComplete='true' required id='pass' placeholder='Password...' />
                         </div>
                         <div className={classes.pass_con}>
                             <label htmlFor="passConfirm">Confirm Password : </label>
-                            <input type="password" ref={conPassRef} required id='passConfirm' placeholder='Confirm Password...' />
+                            <input type="password" ref={conPassRef} autoComplete='true' required id='passConfirm' placeholder='Confirm Password...' />
                         </div>
                         <label className={error === "" ? "hidden" : ""}>* {error}</label>
                         <button type='submit' disabled={loading} className={loading ? classes.disable : ""}>{loading ? "Loading..." : "SignUp"}</button>

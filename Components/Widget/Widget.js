@@ -7,11 +7,9 @@ import SellIcon from '@mui/icons-material/Sell';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { useRouter } from 'next/router';
 
-export default function Widget({ type }) {
+export default function Widget({ type, amount }) {
 
     const router = useRouter();
-
-    const amount = 1000;
     const diff = 20;
 
     let data;

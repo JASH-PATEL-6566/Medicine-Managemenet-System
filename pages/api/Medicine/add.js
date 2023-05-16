@@ -43,6 +43,7 @@ export default async function add(req, res) {
                 User.findById(uid)
                     .then((data) => {
                         const prev_data = data.history;
+                        const current_total_purchase = data.totalPurchase;
                         const current_data = {
                             name,
                             quantity,
@@ -51,12 +52,14 @@ export default async function add(req, res) {
                             updateon: uploadOn,
                             type: 'add'
                         }
+                        console.log(current_total_purchase + (quantity * price));
 
                         const new_data = [current_data, ...prev_data];
                         User.findByIdAndUpdate(uid,
                             {
                                 "$set": {
-                                    "history": new_data
+                                    "history": new_data,
+                                    "totalPurchase": current_total_purchase + (quantity * price),
                                 }
                             },
                             { "new": true, "upsert": true },
