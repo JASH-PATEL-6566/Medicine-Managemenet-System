@@ -47,7 +47,10 @@ const Items = () => {
                             </Button>
                         </div>
                     </div>
-                    <DataTable data={medicineData} col={columns} />
+                    {medicineData.length !== 0 ? <DataTable data={medicineData} col={columns} /> : <>
+                        <h2 style={{ opacity: ".5" }}>You haven't added any medicine yet.</h2>
+                        <span style={{ opacity: '.5', fontWeight: '500' }}>Click here for add medicine - <a href='/user/purchase-medicine' style={{ color: 'blue' }}>Purchase medicine</a></span>
+                    </>}
                 </div>
             </div>
             <SnackbarTag

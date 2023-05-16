@@ -24,8 +24,6 @@ const Sales = () => {
       })
   }, [])
 
-  // console.log(state);
-
   return (
     <>
       <Head>
@@ -41,7 +39,10 @@ const Sales = () => {
               </Button>
             </div>
           </div>
-          <DataTable data={medicineData} col={columns_sale} />
+          {medicineData.length !== 0 ? <DataTable data={medicineData} col={columns_sale} /> : <>
+            <h2 style={{ opacity: ".5" }}>You haven't sold any medicine yet.</h2>
+            <span style={{ opacity: '.5', fontWeight: '500' }}>Click here for sell medicine - <a href='/user/sale-medicine' style={{ color: 'blue' }}>sell medicine</a></span>
+          </>}
         </div>
       </div>
       <SnackbarTag

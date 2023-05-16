@@ -70,7 +70,7 @@ export default function login() {
                         </div>
                         <div className={classes.pass_con}>
                             <label htmlFor="pass">Your Password : </label>
-                            <input type="password" ref={passRef} required id='pass' placeholder='Enter your Password' />
+                            <input type="password" ref={passRef} required id='pass' placeholder='Enter your Password' autoComplete='true' />
                         </div>
                         <label className={error === "" ? "hidden" : ""}>* {error}</label>
                         <button type='submit' disabled={loading} className={loading ? classes.disable : ""}>{loading ? "Loading..." : "Login"}</button>

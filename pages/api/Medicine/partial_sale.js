@@ -19,13 +19,15 @@ export default async function add(req, res) {
         // console.log(req.body);
 
         // find appropiate user for the addition
+        const salesAmount = price * remove_quantity;
 
         User.findById(uid, (err, user) => {
             if (err) {
                 console.error(err);
             } else {
-                // console.log(user);
+                const currentQuantity = user.totalSale;
                 user.stock.find(s => s._id.toString() === _id).quantity = quantity - remove_quantity;
+
                 // console.log("in");
                 user.save((err, updatedUser) => {
                     if (err) {
@@ -54,6 +56,9 @@ export default async function add(req, res) {
                                         }], $position: 0
                                     }
                                 },
+                                $set: {
+                                    totalSale: currentQuantity + salesAmount
+                                }
                             },
                             { new: true },
                             function removeConnectionsCB(err, obj) {

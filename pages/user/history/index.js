@@ -28,7 +28,9 @@ function History() {
             </Head>
             <Navbar title="History" />
             <div className={classes.main_container}>
-                <HistoryTable rows={data} />
+                {data.length !== 0 ? <HistoryTable rows={data} /> : <>
+                    <h2 style={{ opacity: ".5" }}>No history recorded.</h2>
+                </>}
             </div>
         </>
     )
