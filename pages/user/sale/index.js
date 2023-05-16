@@ -34,9 +34,9 @@ const Sales = () => {
         <div className={classes.dataTabelContainer}>
           <div className={classes.input_container}>
             <div className={classes.btn}>
-              <Button startIcon={<RemoveCircleIcon />} fullWidth={true} variant="contained" color="error" onClick={() => router.replace('/user/sale-medicine')}>
+              {<Button startIcon={<RemoveCircleIcon />} fullWidth={true} variant="contained" color="error" onClick={() => router.replace('/user/sale-medicine')}>
                 Sale
-              </Button>
+              </Button>}
             </div>
           </div>
           {medicineData.length !== 0 ? <DataTable data={medicineData} col={columns_sale} /> : <>
