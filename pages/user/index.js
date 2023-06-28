@@ -19,13 +19,13 @@ import { auth } from '../../firebase/firebase';
 export default function User() {
     const router = useRouter();
     const { currentUser } = useAuth();
-    const { state } = useContext(StateContext)
+    const { state, dispatch } = useContext(StateContext)
     const [fetchData, setFetchData] = useState({
         purchase: 0,
         sale: 0
     });
 
-    console.log(auth.currentUser.uid);
+    // console.log(auth.currentUser.uid);
 
 
     useEffect(() => {
@@ -34,6 +34,7 @@ export default function User() {
                 const { totalPurchase, totalSale } = res.data;
                 setFetchData({ purchase: totalPurchase, sale: totalSale })
             })
+        // dispatch({ type: 'set number of notifications', payload: 2 });
     }, [])
 
     return (

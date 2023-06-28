@@ -10,7 +10,9 @@ export const StateContextProvider = ({ children }) => {
         alertTitle: '',
         popupMsg: '',
         popupType: '',
+        number_of_notifications: 10,
     }
+
 
     const StateReducer = (state, action) => {
         switch (action.type) {
@@ -41,6 +43,11 @@ export const StateContextProvider = ({ children }) => {
                     popupType: "",
                     isPopUpOpen: false,
                     popupMsg: ""
+                }
+            case "set number of notifications":
+                return {
+                    ...INITIAL_STATE,
+                    number_of_notifications: action.payload
                 }
             default:
                 return state;

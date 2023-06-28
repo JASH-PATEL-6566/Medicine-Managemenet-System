@@ -6,10 +6,14 @@ import logo from '../../../Images/MedAssist.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { StateContext } from '../../../Context/StateContext';
+import { useContext } from 'react';
 
 export default function Navbar() {
 
     const router = useRouter();
+    const { state } = useContext(StateContext);
+    console.log(state.number_of_notifications);
 
     // console.log(router.pathname.split('/')[2]);
 
@@ -35,9 +39,9 @@ export default function Navbar() {
                     <li page="sale"><Link href='/user/sale'><FaFileInvoice style={{ marginRight: "1em" }} />Sale</Link></li>
                     <li className={classes.noti} page="notification">
                         <Link href='/user/notification'><FaBell style={{ marginRight: "1em" }} />Notification</Link>
-                        <span className={classes.count}>
-                            1
-                        </span>
+                        {state.number_of_notifications !== 0 && <span className={classes.count}>
+                            {state.number_of_notifications >= 10 ? "9+" : state.number_of_notifications}
+                        </span>}
                     </li>
                     {/* <li page="report"><Link href='/user/report'><FaChartPie style={{ marginRight: "1em" }} />Report</Link></li> */}
                 </ul>
